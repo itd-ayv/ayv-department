@@ -2,7 +2,9 @@ package org.example;
 
 import java.io.*;
 import java.util.*;
-import groovy.xml.MarkupBuilder;
+
+import org.example.model.Department;
+
 import javax.xml.stream.XMLOutputFactory;
 import javax.xml.stream.XMLStreamWriter;
 import javax.xml.stream.XMLStreamException;
@@ -19,6 +21,9 @@ public class Main {
 
             writer.writeStartDocument();
             writer.writeStartElement("NikuDataBus");
+
+            writer.writeAttribute("xmlns:xsi", "http://www.w3.org/2001/XMLSchema-instance");
+            writer.writeAttribute("xsi:noNamespaceSchemaLocation", "../xsd/nikuxog_department.xsd");
 
             writer.writeStartElement("Header");
             writer.writeAttribute("action", "write");
@@ -124,6 +129,7 @@ public class Main {
         writer.writeEndElement();
 
         writer.writeEndElement();
+        System.out.println(dept);
 
 
         for (Department childDept : dept.getChildDepartments()) {

@@ -1,4 +1,4 @@
-package org.example;
+package org.example.model;
 
 import java.util.*;
 
@@ -7,7 +7,7 @@ public class Department {
     String name;
     List<Department> childDepartments;
 
-    Department(String id, String name) {
+    public Department(String id, String name) {
         this.id = id;
         this.name = name;
         this.childDepartments = new ArrayList<>();
